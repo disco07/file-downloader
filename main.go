@@ -36,7 +36,7 @@ func downloader(url string) error {
 	if err != nil {
 		return err
 	}
-	nbPart := 6
+	nbPart := 5
 	offset := cntLen / nbPart
 
 	wg := sync.WaitGroup{}
@@ -46,6 +46,8 @@ func downloader(url string) error {
 		name := fmt.Sprintf("part%d.part", i)
 		start := i * offset
 		end := (i + 1) * offset
+
+		i := i
 
 		go func() {
 			defer wg.Done()
@@ -75,7 +77,7 @@ func downloader(url string) error {
 
 			bar := progressbar.DefaultBytes(
 				res.ContentLength,
-				"downloading",
+				fmt.Sprintf("downloading-worker %d", i+1),
 			)
 			io.Copy(io.MultiWriter(f, bar), res.Body)
 
