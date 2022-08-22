@@ -4,6 +4,8 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"github.com/schollz/progressbar/v3"
+	"io"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -60,6 +62,18 @@ func downloader(url string) error {
 				return
 			}
 			defer res.Body.Close()
+
+			f, err := os.OpenFile(name, os.O_CREATE|os.O_WRONLY, 0644)
+			if err != nil {
+				return
+			}
+			defer f.Close()
+
+			bar := progressbar.DefaultBytes(
+				res.ContentLength,
+				"downloading",
+			)
+			io.Copy(io.MultiWriter(f, bar), res.Body)
 
 			body, err := ioutil.ReadAll(res.Body)
 			if err != nil {
