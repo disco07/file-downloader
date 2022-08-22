@@ -23,7 +23,6 @@ go install
 ```
 
 ## Built with
-<hr/>
 
 ### Language
 <li>Golang</li>
