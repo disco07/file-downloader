@@ -2,6 +2,7 @@ package main
 
 import (
 	"errors"
+	"flag"
 	"fmt"
 	"io/ioutil"
 	"log"
@@ -91,7 +92,9 @@ func downloader(url string) error {
 }
 
 func main() {
-	err := downloader("https://agritrop.cirad.fr/584726/1/Rapport.pdf")
+	var url string
+	flag.StringVar(&url, "u", "https://agritrop.cirad.fr/584726/1/Rapport.pdf", "url of the file to download")
+	err := downloader(url)
 	if err != nil {
 		log.Fatal(err)
 		return
