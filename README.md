@@ -35,7 +35,7 @@ go install
 <strong>Drissa Koné</strong>
 
 <li>Github: <a href="https://github.com/disco07">@disco07</a></li>
-<li>LinkedIn: <a href="https://linkedin.com/in/drissa-kon%C3%A9">@disco07</a></li>
+<li>LinkedIn: <a href="https://linkedin.com/in/drissa-kon%C3%A9">@drissakone</a></li>
 
 ## Contributing 🤝
 Contributions, issues, and feature requests are welcome!
