@@ -16,11 +16,15 @@ import (
 )
 
 func downloader(url string) error {
+	if strings.TrimSpace(url) == "" {
+		return errors.New("invalid url")
+	}
 	client := http.Client{}
 
 	res, err := http.Head(url)
 	if err != nil {
-		return err
+		fmt.Printf("error: %s", err.Error())
+		return errors.New("unsupported protocol scheme")
 	}
 	urlSplit := strings.Split(url, "/")
 	filename := urlSplit[len(urlSplit)-1]
@@ -108,6 +112,7 @@ func downloader(url string) error {
 func main() {
 	var url string
 	flag.StringVar(&url, "u", "https://agritrop.cirad.fr/584726/1/Rapport.pdf", "url of the file to download")
+	flag.Parse()
 	err := downloader(url)
 	if err != nil {
 		log.Fatal(err)
