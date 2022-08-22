@@ -46,4 +46,4 @@ Feel free to check the issues page.
 Give a ⭐️ if you like this project!
 
 ## 📝 License
-This project is MIT is licensed.
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
