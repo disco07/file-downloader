@@ -1,9 +1,7 @@
 # file-downloader
-<hr/>
 File downloader with goroutine
 
 ## Getting Started
-<hr/>
 
 ### Prerequisites
 <li>Text editor i.e Golang-JetBrains 🔥</li>
