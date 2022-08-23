@@ -95,6 +95,10 @@ func downloader(url string) error {
 	wg.Wait()
 
 	out, err := os.Create(filename)
+	if err != nil {
+		return err
+	}
+	defer out.Close()
 	for i := 0; i < nbPart; i++ {
 		name := fmt.Sprintf("part%d.part", i)
 		file, err := ioutil.ReadFile(name)
