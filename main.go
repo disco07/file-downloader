@@ -43,7 +43,7 @@ func downloader(url string) error {
 
 	for i := 0; i < nbPart; i++ {
 		wg.Add(1)
-		name := fmt.Sprintf("part%d.part", i)
+		name := fmt.Sprintf("part%d", i)
 		start := i * offset
 		end := (i + 1) * offset
 
@@ -100,7 +100,7 @@ func downloader(url string) error {
 	}
 	defer out.Close()
 	for i := 0; i < nbPart; i++ {
-		name := fmt.Sprintf("part%d.part", i)
+		name := fmt.Sprintf("part%d", i)
 		file, err := ioutil.ReadFile(name)
 		if err != nil {
 			return err
