@@ -57,7 +57,7 @@ func downloader(url string) error {
 			}
 			defer part.Close()
 
-			req, err := http.NewRequest("GET", url, nil)
+			req, err := http.NewRequest(http.MethodGet, url, nil)
 			if err != nil {
 				return
 			}
