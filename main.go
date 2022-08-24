@@ -24,13 +24,12 @@ func worker(url string) error {
 
 	res, err := http.Head(url)
 	if err != nil {
-		fmt.Printf("error: %s", err.Error())
 		return errors.New("unsupported protocol scheme")
 	}
 	urlSplit := strings.Split(url, "/")
 	filename := urlSplit[len(urlSplit)-1]
 	if res.Header.Get("Accept-Ranges") != "bytes" {
-		return errors.New("impossible de télécharger ce fichier")
+		return errors.New("unable to download file with multithreads")
 	}
 
 	cntLen, err := strconv.Atoi(res.Header.Get("Content-Length"))
