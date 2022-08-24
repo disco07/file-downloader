@@ -13,6 +13,7 @@ import (
 	"strconv"
 	"strings"
 	"sync"
+	"time"
 )
 
 func downloader(url string) error {
@@ -36,7 +37,7 @@ func downloader(url string) error {
 	if err != nil {
 		return err
 	}
-	nbPart := 5
+	nbPart := 3
 	offset := cntLen / nbPart
 
 	wg := sync.WaitGroup{}
@@ -119,9 +120,11 @@ func main() {
 	var url string
 	flag.StringVar(&url, "u", "https://agritrop.cirad.fr/584726/1/Rapport.pdf", "url of the file to download")
 	flag.Parse()
+	start := time.Now()
 	err := downloader(url)
 	if err != nil {
 		log.Fatal(err)
 		return
 	}
+	fmt.Println(time.Since(start))
 }
