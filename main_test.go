@@ -15,7 +15,7 @@ var downloaderTests = []struct {
 
 func TestDownloader(t *testing.T) {
 	for _, tt := range downloaderTests {
-		err := downloader(tt.url)
+		err := worker(tt.url)
 		if err == nil {
 			t.Errorf("Expected error for input %v", tt.url)
 		}
@@ -27,6 +27,6 @@ func TestDownloader(t *testing.T) {
 
 func BenchmarkDownloader(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		downloader("https://agritrop.cirad.fr/584726/1/Rapport.pdf")
+		worker("https://agritrop.cirad.fr/584726/1/Rapport.pdf")
 	}
 }

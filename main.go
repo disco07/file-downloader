@@ -16,7 +16,7 @@ import (
 	"time"
 )
 
-func downloader(url string) error {
+func worker(url string) error {
 	if strings.TrimSpace(url) == "" {
 		return errors.New("invalid url")
 	}
@@ -121,7 +121,7 @@ func main() {
 	flag.StringVar(&url, "u", "https://agritrop.cirad.fr/584726/1/Rapport.pdf", "url of the file to download")
 	flag.Parse()
 	start := time.Now()
-	err := downloader(url)
+	err := worker(url)
 	if err != nil {
 		log.Fatal(err)
 		return
