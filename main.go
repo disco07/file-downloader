@@ -34,7 +34,7 @@ func worker(url string) error {
 
 	cntLen, err := strconv.Atoi(res.Header.Get("Content-Length"))
 	if err != nil {
-		return err
+		return errors.New("unable to parse variable")
 	}
 	nbPart := 3
 	offset := cntLen / nbPart
