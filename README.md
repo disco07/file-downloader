@@ -21,6 +21,15 @@ cd file-downloader
 ```bash
 go install
 ```
+### To Run
+```bash
+go run main.go -u "file url"
+```
+### To Build and Run
+```bash
+GOOS=target-OS GOARCH=target-architecture go build -o downloader .
+./downloader -u "file url"
+```
 
 ## Built with
 
