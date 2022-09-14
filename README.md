@@ -1,4 +1,5 @@
 [![test](https://github.com/disco07/file-downloader/actions/workflows/test.yml/badge.svg?branch=main)](https://github.com/disco07/file-downloader/actions/workflows/test.yml)
+![Coverage](https://img.shields.io/badge/Coverage-73.2%25-brightgreen)
 
 # file-downloader
 File downloader with goroutine
