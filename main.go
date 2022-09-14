@@ -105,7 +105,10 @@ func worker(url string) error {
 		if err != nil {
 			return err
 		}
-		out.WriteAt(file, int64(i*offset))
+		_, err = out.WriteAt(file, int64(i*offset))
+		if err != nil {
+			return err
+		}
 
 		if err := os.Remove(name); err != nil {
 			return err
